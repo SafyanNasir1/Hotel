@@ -49,7 +49,7 @@ const handleLoginSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    const res = await fetch("http://localhost:5000/api/auth/login", {
+    const res = await fetch("https://hotel-server-teal.vercel.app/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -90,13 +90,16 @@ const handleLoginSubmit = async (e) => {
    e.preventDefault();
 
    try {
-     const res = await fetch("http://localhost:5000/api/auth/signup", {
-       method: "POST",
-       headers: {
-         "Content-Type": "application/json",
+     const res = await fetch(
+       "https://hotel-server-teal.vercel.app/api/signup",
+       {
+         method: "POST",
+         headers: {
+           "Content-Type": "application/json",
+         },
+         body: JSON.stringify(form),
        },
-       body: JSON.stringify(form),
-     });
+     );
 
      const data = await res.json();
 
