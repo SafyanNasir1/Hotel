@@ -7,7 +7,7 @@ const Fotter = () => {
         <div className="flex flex-wrap justify-between gap-12 md:gap-6">
           <div className="max-w-80">
             <img
-              src="../public/logo.svg"
+              src="/logo.svg"
               alt="logo"
               className="mb-4 h-8 md:h-9 invert opacity-80"
             />
@@ -16,10 +16,10 @@ const Fotter = () => {
               boutique hotels to luxury villas and private islands.
             </p>
             <div className="flex items-center gap-3 mt-4">
-              <img src="../public/instagramIcon.svg" alt="Instagram" />
-              <img src="../public/facebookIcon.svg" alt="Facebook" />
-              <img src="../public/twitterIcon.svg" alt="Twitter" />
-              <img src="../public/linkendinIcon.svg" alt="LinkedIn" />
+              <img src="/instagramIcon.svg" alt="Instagram" />
+              <img src="/facebookIcon.svg" alt="Facebook" />
+              <img src="/twitterIcon.svg" alt="Twitter" />
+              <img src="/linkendinIcon.svg" alt="LinkedIn" />
             </div>
           </div>
           {/* 1 */}
@@ -79,7 +79,7 @@ const Fotter = () => {
               />
               <button className="flex items-center justify-center bg-black h-9 w-9 aspect-square rounded-r">
                 <img
-                  src="./public/arrowIcon.svg"
+                  src="/arrowIcon.svg"
                   alt="arrow"
                   className="w-3.5 invert"
                 />

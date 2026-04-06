@@ -56,11 +56,11 @@ const Review = () => {
                 src={assets.starIconOutlined}
                 alt="star-fil-without"
               /> */}
-                <img className="w-4.5 h-4.5" src="./public/starIconFilled.svg" alt="star-fil" />
-                <img className="w-4.5 h-4.5" src="./public/starIconFilled.svg" alt="star-fil" />
-                <img className="w-4.5 h-4.5" src="./public/starIconFilled.svg" alt="star-fil" />
-                <img className="w-4.5 h-4.5" src="./public/starIconFilled.svg" alt="star-fil" />
-                <img className="w-4.5 h-4.5" src="./public/starIconOutlined.svg" alt="star-fil-without" />
+                <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
+                <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
+                <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
+                <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
+                <img className="w-4.5 h-4.5" src="/starIconOutlined.svg" alt="star-fil-without" />
             </div>
             <p className="text-gray-500 max-w-90 mt-4">
               "I've used many booking platforms before, but none compare to the
@@ -107,11 +107,11 @@ const Review = () => {
                 src={assets.starIconOutlined}
                 alt="star-fil-without"
               /> */}
-                <img className="w-4.5 h-4.5" src="./public/starIconFilled.svg" alt="star-fil" />
-                <img className="w-4.5 h-4.5" src="./public/starIconFilled.svg" alt="star-fil" />
-                <img className="w-4.5 h-4.5" src="./public/starIconFilled.svg" alt="star-fil" />
-                <img className="w-4.5 h-4.5" src="./public/starIconFilled.svg" alt="star-fil" />
-                <img className="w-4.5 h-4.5" src="./public/starIconOutlined.svg" alt="star-fil-without" />
+                <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
+                <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
+                <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
+                <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
+                <img className="w-4.5 h-4.5" src="/starIconOutlined.svg" alt="star-fil-without" />
             </div>
             <p className="text-gray-500 max-w-90 mt-4">
               "I've used many booking platforms before, but none compare to the
@@ -158,11 +158,11 @@ const Review = () => {
                 src={assets.starIconOutlined}
                 alt="star-fil-without"
               /> */}
-                <img className="w-4.5 h-4.5" src="./public/starIconFilled.svg" alt="star-fil" />
-                <img className="w-4.5 h-4.5" src="./public/starIconFilled.svg" alt="star-fil" />
-                <img className="w-4.5 h-4.5" src="./public/starIconFilled.svg" alt="star-fil" />
-                <img className="w-4.5 h-4.5" src="./public/starIconFilled.svg" alt="star-fil" />
-                <img className="w-4.5 h-4.5" src="./public/starIconOutlined.svg" alt="star-fil-without" />
+                <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
+                <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
+                <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
+                <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
+                <img className="w-4.5 h-4.5" src="/starIconOutlined.svg" alt="star-fil-without" />
             </div>
             <p className="text-gray-500 max-w-90 mt-4">
               "I've used many booking platforms before, but none compare to the
