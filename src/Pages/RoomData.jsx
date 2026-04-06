@@ -173,14 +173,14 @@ const handleSubmit = (e) => {
           <div className="flex flex-wrap items-center mt-6 gap-4">
             {room.amenities.includes("Free Wifi") && (
               <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100">
-                <img src="../public/freeWifiIcon.svg" className="w-5 h-5" />
+                <img src="/freeWifiIcon.svg" className="w-5 h-5" />
                 <p>Free Wifi</p>
               </div>
             )}
             {room.amenities.includes("Free Breakfast") && (
               <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100">
                 <img
-                  src="../public/freeBreakfastIcon.svg"
+                  src="/freeBreakfastIcon.svg"
                   className="w-5 h-5"
                 />
                 <p>Free Breakfast</p>
@@ -188,7 +188,7 @@ const handleSubmit = (e) => {
             )}
             {room.amenities.includes("Room Service") && (
               <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100">
-                <img src="../public/roomServiceIcon.svg" className="w-5 h-5" />
+                <img src="/roomServiceIcon.svg" className="w-5 h-5" />
                 <p>Room Service</p>
               </div>
             )}
@@ -250,7 +250,7 @@ const handleSubmit = (e) => {
 
         <div className="mt-25 space-y-4">
           <div className="flex items-start gap-2">
-            <img src="../public/homeicon.svg" alt="home" className="w-6.5" />
+            <img src="/homeicon.svg" alt="home" className="w-6.5" />
             <div>
               <p className="text-base">Clean & Safe Stay</p>
               <p className="text-gray-500">
@@ -262,7 +262,7 @@ const handleSubmit = (e) => {
 
           <div className="flex items-start gap-2">
             <img
-              src="../public/badgeIcon.svg"
+              src="/badgeIcon.svg"
               alt="badgeIcon"
               className="w-6.5"
             />
@@ -276,7 +276,7 @@ const handleSubmit = (e) => {
           </div>
           <div className="flex items-start gap-2">
             <img
-              src="../public/locationFilledIcon.svg"
+              src="/locationFilledIcon.svg"
               alt="location-filled"
               className="w-6.5"
             />
@@ -289,7 +289,7 @@ const handleSubmit = (e) => {
             </div>
           </div>
           <div className="flex items-start gap-2">
-            <img src="../public/heartIcon.svg" alt="heart" className="w-6.5" />
+            <img src="/heartIcon.svg" alt="heart" className="w-6.5" />
 
             <div>
               <p className="text-base">Smooth Check-In</p>
@@ -329,7 +329,7 @@ const handleSubmit = (e) => {
           <div className="flex gap-4">
             <img
               className="h-14 w-14 md:h-18 md:w-18 rounded-full"
-              src="../public/host.jpg"
+              src="/host.jpg"
               alt="Host"
             />
           </div>
@@ -340,27 +340,27 @@ const handleSubmit = (e) => {
         <div className="flex items-center gap-1">
           <img
             className='class="w-4.5 h-4.5'
-            src="../public/starIconFilled.svg"
+            src="/starIconFilled.svg"
             alt="filled-star"
           />
           <img
             className='class="w-4.5 h-4.5'
-            src="../public/starIconFilled.svg"
+            src="/starIconFilled.svg"
             alt="filled-star"
           />
           <img
             className='class="w-4.5 h-4.5'
-            src="../public/starIconFilled.svg"
+            src="/starIconFilled.svg"
             alt="filled-star"
           />
           <img
             className='class="w-4.5 h-4.5'
-            src="../public/starIconFilled.svg"
+            src="/starIconFilled.svg"
             alt="filled-star"
           />
           <img
             className='class="w-4.5 h-4.5'
-            src="../public/starIconOutlined.svg"
+            src="/starIconOutlined.svg"
             alt="not-filled-star"
           />
           <p className="ml-2">200+ reviews</p>
