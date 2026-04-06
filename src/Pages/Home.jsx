@@ -8,18 +8,21 @@ import Fotter from "../Components/Fotter";
 import Review from "../Components/Review";
 
 const Home = () => {
-     const navigate = useNavigate();
+  const navigate = useNavigate();
 
-     const handleSearch = (e) => {
-       e.preventDefault();
-       navigate("/rooms");
-     };
-
+  const handleSearch = (e) => {
+    e.preventDefault();
+    navigate("/rooms");
+  };
 
   return (
     <>
       <Navbar />
-      <div className='flex flex-col items-start justify-center px-6 md:px-16 lg:px-24 xl:px-32 text-white bg-[url("/heroimage.png")] bg-no-repeat bg-cover bg-center h-screen'>
+      {/* <div className='flex flex-col items-start justify-center px-6 md:px-16 lg:px-24 xl:px-32 text-white bg-[url("/heroimage.png")] bg-no-repeat bg-cover bg-center h-screen'> */}
+      <div
+        style={{ backgroundImage: "url('/heroimage.png')" }}
+        className="flex flex-col items-start justify-center px-6 md:px-16 lg:px-24 xl:px-32 text-white bg-no-repeat bg-cover bg-center h-screen"
+      >
         <p className="bg-[#49B9FF]/50 px-3 py-1 rounded-full mt-20 inline-block">
           The Ultimate Hotel Experience
         </p>
