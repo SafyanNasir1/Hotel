@@ -4,7 +4,7 @@ const OwnerProtectedRoute = ({ children }) => {
   const user = JSON.parse(localStorage.getItem("user"));
 
   if (!user || user.role !== "owner") {
-    return <Navigate to="/" />;
+    return <Navigate to="/auth" replace />;
   }
 
   return children;
