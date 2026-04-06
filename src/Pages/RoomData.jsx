@@ -1,0 +1,412 @@
+import React, { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import Navbar from "./Navbar";
+import Fotter from "../Components/Fotter";
+
+const RoomData = () => {
+  const navigate = useNavigate();
+  const { id } = useParams();
+
+  const rooms = [
+    {
+      _id: "1",
+      name: "SHAFFI SUITES",
+      price: 70,
+      roomType: "Deluxe Room",
+      images: ["room1.jpg", "room1-1.jpg", "room1-2.jpg", "room1-3.jpg"],
+      amenities: ["Free Wifi", "Free Breakfast", "Room Service"],
+    },
+    {
+      _id: "2",
+      name: "SHAFFI SUITES",
+      price: 80,
+      roomType: "Standard Room",
+      images: ["room2.jpg", "room2-1.jpg", "room2-2.jpg", "room1-3.jpg"],
+      amenities: ["Free Wifi", "Free Breakfast", "Room Service"],
+    },
+    {
+      _id: "3",
+      name: "SHAFFI SUITES",
+      price: 90,
+      roomType: "Deluxe Room",
+      images: ["room3.jpg", "room3-2.jpg", "room3-1.jpg", "room1-3.jpg"],
+      amenities: ["Free Wifi", "Free Breakfast", "Room Service"],
+    },
+    {
+      _id: "4",
+      name: "SHAFFI SUITES",
+      price: 100,
+      roomType: "Deluxe Room",
+      images: ["room4.jpg", "room4-1.jpg", "room4-2.jpg", "room1-3.jpg"],
+      amenities: ["Free Wifi", "Free Breakfast", "Room Service"],
+    },
+  ];
+
+  const room = rooms.find((r) => r._id === id);
+
+  if (!room) {
+    return <h1 className="text-center mt-20 text-2xl">Room not found</h1>;
+  }
+
+  const images = room.images.map((img) => `/${img}`);
+
+  const [mainImage, setMainImage] = useState(images[0]);
+  const [fade, setFade] = useState(false);
+  const [popup, setPopup] = useState(null);
+
+  const handleImageClick = (img) => {
+    setFade(true);
+    setTimeout(() => {
+      setMainImage(img);
+      setFade(false);
+    }, 200);
+  };
+
+  const showPopup = (message, type) => {
+    setPopup({ message, type });
+    setTimeout(() => setPopup(null), 2500);
+  };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   const checkIn = e.target[0].value;
+  //   const checkOut = e.target[1].value;
+  //   const guests = Number(e.target[2].value);
+
+  //   if (!checkIn || !checkOut || !guests) {
+  //     showPopup("Please fill all fields!", "error");
+  //     return;
+  //   }
+
+  //   const nights =
+  //     (new Date(checkOut) - new Date(checkIn)) / (1000 * 60 * 60 * 24);
+
+  //   if (nights <= 0) {
+  //     showPopup("Check-out must be after check-in", "error");
+  //     return;
+  //   }
+
+  //   const totalPrice = nights * room.price;
+
+  //   console.log({
+  //     roomId: room._id,
+  //     roomName: room.name,
+  //     price: totalPrice,
+  //   });
+
+  //   showPopup("Room booked successfully!", "success");
+
+  //   setTimeout(() => {
+  //     navigate("/bookings");
+  //   }, 1500);
+  // };
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  const checkIn = e.target[0].value;
+  const checkOut = e.target[1].value;
+  const guests = Number(e.target[2].value);
+
+  if (!checkIn || !checkOut || !guests) {
+    showPopup("Please fill all fields!", "error");
+    return;
+  }
+
+  const nights =
+    (new Date(checkOut) - new Date(checkIn)) / (1000 * 60 * 60 * 24);
+
+  if (nights <= 0) {
+    showPopup("Check-out must be after check-in", "error");
+    return;
+  }
+
+  const totalPrice = nights * room.price;
+
+  // ✅ NEW BOOKING OBJECT
+  const newBooking = {
+    _id: Date.now().toString(),
+    roomName: room.name,
+    roomType: room.roomType,
+    guests,
+    checkIn,
+    checkOut,
+    price: totalPrice,
+    roomImage: room.images[0],
+  };
+
+  // ✅ SAVE TO LOCALSTORAGE
+  const oldBookings = JSON.parse(localStorage.getItem("bookings")) || [];
+  localStorage.setItem(
+    "bookings",
+    JSON.stringify([newBooking, ...oldBookings]),
+  );
+
+  showPopup("Room booked successfully!", "success");
+
+  setTimeout(() => {
+    navigate("/bookings");
+  }, 1500);
+};
+  return (
+    <>
+      <Navbar />
+      {popup && (
+        <div
+          className={`fixed top-5 left-1/2 -translate-x-1/2 px-6 py-3 text-white rounded-md z-50 ${
+            popup.type === "success" ? "bg-green-600" : "bg-red-600"
+          }`}
+        >
+          {popup.message}
+        </div>
+      )}
+
+      <div className="min-h-[70vh] py-28 md:py-35 px-4 md:px-16 lg:px-24 xl:px-32">
+        {/* TITLE */}
+        <h1 className="text-3xl md:text-4xl font-playfair">{room.name}</h1>
+
+        {/* IMAGES */}
+        {mainImage && (
+          <div className="flex flex-col lg:flex-row mt-6 gap-6">
+            <div className="lg:w-1/2 w-full">
+              <img
+                src={mainImage}
+                className={`w-full rounded-xl shadow-lg object-cover transition-opacity duration-300 ${
+                  fade ? "opacity-0" : "opacity-100"
+                }`}
+                alt="main"
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 lg:w-1/2 w-full">
+              {images.map((img, index) => (
+                <img
+                  key={index}
+                  onClick={() => handleImageClick(img)}
+                  src={img}
+                  className={`w-full rounded-xl shadow-md object-cover cursor-pointer border-2 transition ${
+                    mainImage === img
+                      ? "border-orange-500 scale-105"
+                      : "border-transparent hover:scale-105"
+                  }`}
+                  alt="thumb"
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* PRICE */}
+        <div className="flex justify-between mt-10">
+          <h2 className="text-3xl font-playfair">Room Details</h2>
+          <p className="text-2xl font-medium">${room.price}</p>
+        </div>
+
+        {/* AMENITIES */}
+        {room.amenities?.length > 0 && (
+          <div className="flex flex-wrap items-center mt-6 gap-4">
+            {room.amenities.includes("Free Wifi") && (
+              <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100">
+                <img src="../public/freeWifiIcon.svg" className="w-5 h-5" />
+                <p>Free Wifi</p>
+              </div>
+            )}
+            {room.amenities.includes("Free Breakfast") && (
+              <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100">
+                <img
+                  src="../public/freeBreakfastIcon.svg"
+                  className="w-5 h-5"
+                />
+                <p>Free Breakfast</p>
+              </div>
+            )}
+            {room.amenities.includes("Room Service") && (
+              <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100">
+                <img src="../public/roomServiceIcon.svg" className="w-5 h-5" />
+                <p>Room Service</p>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* BOOKING FORM */}
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col md:flex-row items-start md:items-center justify-between bg-white shadow-[0px_0px_20px_rgba(0,0,0,0.15)] p-6 rounded-xl mx-auto mt-16 max-w-6xl"
+        >
+          <div className="flex flex-col flex-wrap md:flex-row items-start md:items-center gap-4 md:gap-10 text-gray-500">
+            <div className="flex flex-col">
+              <label htmlFor="CheckInDate" className="font-medium">
+                Check-In
+              </label>
+              <input
+                id="CheckInDate"
+                min={"2025-12-01"}
+                className="w-full rounded border border-gray-300 px-3 py-2 mt-1.5 outline-none"
+                placeholder="Check-In"
+                required
+                type="date"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="CheckOutDate" className="font-medium">
+                Check-Out
+              </label>
+              <input
+                id="CheckOutDate"
+                min={"2025-12-01"}
+                className="w-full rounded border border-gray-300 px-3 py-2 mt-1.5 outline-none"
+                placeholder="Check-Out"
+                required
+                type="date"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="guests" className="font-medium">
+                Guests
+              </label>
+              <input
+                id="guests"
+                className="max-w-20 rounded border border-gray-300 px-3 py-2 mt-1.5 outline-none"
+                placeholder="0"
+                required
+                type="number"
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            className="bg-primary hover:bg-primary-dull active:scale-95 transition-all text-white rounded-md max-md:w-full max-md:mt-6 md:px-25 py-3 md:py-4 text-base cursor-pointer"
+          >
+            Check Availability
+          </button>
+        </form>
+
+        <div className="mt-25 space-y-4">
+          <div className="flex items-start gap-2">
+            <img src="../public/homeicon.svg" alt="home" className="w-6.5" />
+            <div>
+              <p className="text-base">Clean & Safe Stay</p>
+              <p className="text-gray-500">
+                {" "}
+                A well-maintained and hygienic space just for you.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-2">
+            <img
+              src="../public/badgeIcon.svg"
+              alt="badgeIcon"
+              className="w-6.5"
+            />
+            <div>
+              <p className="text-base">Enhanced Cleaning</p>
+              <p className="text-gray-500">
+                {" "}
+                This host follows Staybnb's strict cleaning standards.
+              </p>
+            </div>
+          </div>
+          <div className="flex items-start gap-2">
+            <img
+              src="../public/locationFilledIcon.svg"
+              alt="location-filled"
+              className="w-6.5"
+            />
+            <div>
+              <p className="text-base">Excellent Location</p>
+              <p className="text-gray-500">
+                {" "}
+                90% of guests rated the location 5 stars.
+              </p>
+            </div>
+          </div>
+          <div className="flex items-start gap-2">
+            <img src="../public/heartIcon.svg" alt="heart" className="w-6.5" />
+
+            <div>
+              <p className="text-base">Smooth Check-In</p>
+
+              <p className="text-gray-500">
+                100% of guests gave check-in a 5-star rating.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-3xl border-y border-gray-300 my-15 py-10 text-gray-500">
+          <p>
+            Guests will be allocated on the ground floor according to
+            availability. You get a comfortable Two bedroom apartment has a true
+            city feeling. The price quoted is for two guest, at the guest slot
+            please mark the number of guests to get the exact price for groups.
+            The Guests will be allocated ground floor according to availability.
+            You get the comfortable two bedroom apartment that has a true city
+            feeling.
+          </p>
+        </div>
+        <div className="w-full h-[60vh] md:h-[639px]">
+          <h1 className="text-3xl md:text-4xl font-playfair">
+            Location On Map
+          </h1>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13605.202222874279!2d74.26875308715819!3d31.51590410000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391903a24f371795%3A0x74beee8aa43e49d5!2sPNY%20Trainings%20-%20Iqbal%20Town%20Branch!5e0!3m2!1sen!2s!4v1758825472346!5m2!1sen!2s"
+            className="w-full h-full border-0 rounded-xl pt-5"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          ></iframe>
+        </div>
+        <div className=" border border-gray-300  text-gray-500 mt-30"></div>
+        <div className="flex flex-col items-start gap-4 mt-10">
+          <div className="flex gap-4">
+            <img
+              className="h-14 w-14 md:h-18 md:w-18 rounded-full"
+              src="../public/host.jpg"
+              alt="Host"
+            />
+          </div>
+        </div>
+
+        <p className="text-lg md:text-xl mt-5">Hosted by Safyan Suites</p>
+
+        <div className="flex items-center gap-1">
+          <img
+            className='class="w-4.5 h-4.5'
+            src="../public/starIconFilled.svg"
+            alt="filled-star"
+          />
+          <img
+            className='class="w-4.5 h-4.5'
+            src="../public/starIconFilled.svg"
+            alt="filled-star"
+          />
+          <img
+            className='class="w-4.5 h-4.5'
+            src="../public/starIconFilled.svg"
+            alt="filled-star"
+          />
+          <img
+            className='class="w-4.5 h-4.5'
+            src="../public/starIconFilled.svg"
+            alt="filled-star"
+          />
+          <img
+            className='class="w-4.5 h-4.5'
+            src="../public/starIconOutlined.svg"
+            alt="not-filled-star"
+          />
+          <p className="ml-2">200+ reviews</p>
+        </div>
+
+        <button className="px-6 py-2.5 mt-4 rounded text-white bg-primary hover:bg-primary-dull transition-all cursor-pointer">
+          Contact Now
+        </button>
+      </div>
+      <Fotter />
+    </>
+  );
+};
+
+export default RoomData;
