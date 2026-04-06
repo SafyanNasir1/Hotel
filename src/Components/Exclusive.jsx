@@ -20,7 +20,7 @@ const Exclusive = () => {
           <button className="group flex items-center gap-2 font-medium cursor-pointer max-md:mt-12">
             View All Offers
             <img
-              src="./public/arrowIcon.svg"
+              src="/arrowIcon.svg"
               alt="arrow-icon"
               className="group-hover:translate-x-3 transition-all"
             />
@@ -46,7 +46,7 @@ const Exclusive = () => {
             <button className="flex items-center gap-2 font-medium cursor-pointer mt-4 mb-5">
               View Offers
               <img
-                src="./public/arrowIcon.svg"
+                src="/arrowIcon.svg"
                 alt="arrow-icon"
                 className="invert group-hover:translate-x-1 transition-all"
               />
@@ -73,7 +73,7 @@ const Exclusive = () => {
               View Offers
             
               <img
-                src="./public/arrowIcon.svg"
+                src="/arrowIcon.svg"
                 alt="arrow-icon"
                 className="invert group-hover:translate-x-1 transition-all"
               />
@@ -102,7 +102,7 @@ const Exclusive = () => {
             <button className="flex items-center gap-2 font-medium cursor-pointer mt-4 mb-5">
               View Offers
               
-              <img src="./public/arrowIcon.svg" alt="arrow-icon" className="invert group-hover:translate-x-1 transition-all" />
+              <img src="/arrowIcon.svg" alt="arrow-icon" className="invert group-hover:translate-x-1 transition-all" />
             </button>
           </div>
         </div>
