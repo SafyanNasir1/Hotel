@@ -108,15 +108,15 @@ const AllRooms = () => {
           .fill(0)
           .map((_, i) => (
             // <img key={"f" + i} src={assets.starIconFilled} alt="star" />
-            <img key={"f" + i} src="./public/starIconFilled.svg" alt="star" />
+            <img key={"f" + i} src="/starIconFilled.svg" alt="star" />
           ))}
         {halfStar ? (
-          <img src="./public/starIconOutlined.svg" alt="star" />
+          <img src="/starIconOutlined.svg" alt="star" />
         ) : null}
         {Array(emptyStars)
           .fill(0)
           .map((_, i) => (
-            <img key={"e" + i} src="./public/starIconOutlined.svg" alt="star" />
+            <img key={"e" + i} src="/starIconOutlined.svg" alt="star" />
           ))}
       </div>
     );

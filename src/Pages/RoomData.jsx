@@ -67,40 +67,6 @@ const RoomData = () => {
     setTimeout(() => setPopup(null), 2500);
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   const checkIn = e.target[0].value;
-  //   const checkOut = e.target[1].value;
-  //   const guests = Number(e.target[2].value);
-
-  //   if (!checkIn || !checkOut || !guests) {
-  //     showPopup("Please fill all fields!", "error");
-  //     return;
-  //   }
-
-  //   const nights =
-  //     (new Date(checkOut) - new Date(checkIn)) / (1000 * 60 * 60 * 24);
-
-  //   if (nights <= 0) {
-  //     showPopup("Check-out must be after check-in", "error");
-  //     return;
-  //   }
-
-  //   const totalPrice = nights * room.price;
-
-  //   console.log({
-  //     roomId: room._id,
-  //     roomName: room.name,
-  //     price: totalPrice,
-  //   });
-
-  //   showPopup("Room booked successfully!", "success");
-
-  //   setTimeout(() => {
-  //     navigate("/bookings");
-  //   }, 1500);
-  // };
 const handleSubmit = (e) => {
   e.preventDefault();
 
