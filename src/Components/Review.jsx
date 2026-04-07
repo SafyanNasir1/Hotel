@@ -3,11 +3,12 @@ import men from "../../public/men.png";
 import men2 from "../../public/men2.avif";
 import mahi from "../../public/mahi.png";
 import Navbar from "../Pages/Navbar";
+import Fotter from "./Fotter";
 const Review = () => {
   return (
     <>
     <Navbar />
-      <div className="pt-40 flex flex-col items-center px-6 md:px-16 lg:px-24 bg-slate-50 pt-20 pb-30">
+        <div className="pt-30 flex flex-col items-center px-6 md:px-16 lg:px-24 bg-slate-50 pt-20 pb-30 min-h-screen">
         <div className="flex flex-col justify-center items-center text-center false">
           <h1 className=" text-4xl md:text-[40px] font-playfair">
             What Our Guests Say
@@ -31,31 +32,7 @@ const Review = () => {
               </div>
             </div>
             <div className="flex items-center gap-1 mt-4">
-              {/* <img
-                className="w-4.5 h-4.5"
-                src={assets.starIconFilled}
-                alt="star-fil"
-              />
-              <img
-                className="w-4.5 h-4.5"
-                src={assets.starIconFilled}
-                alt="star-fil"
-              />
-              <img
-                className="w-4.5 h-4.5"
-                src={assets.starIconFilled}
-                alt="star-fil"
-              />
-              <img
-                className="w-4.5 h-4.5"
-                src={assets.starIconFilled}
-                alt="star-fil"
-              />
-              <img
-                className="w-4.5 h-4.5"
-                src={assets.starIconOutlined}
-                alt="star-fil-without"
-              /> */}
+             
                 <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
                 <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
                 <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
@@ -82,31 +59,7 @@ const Review = () => {
               </div>
             </div>
             <div className="flex items-center gap-1 mt-4">
-              {/* <img
-                className="w-4.5 h-4.5"
-                src={assets.starIconFilled}
-                alt="star-fil"
-              />
-              <img
-                className="w-4.5 h-4.5"
-                src={assets.starIconFilled}
-                alt="star-fil"
-              />
-              <img
-                className="w-4.5 h-4.5"
-                src={assets.starIconFilled}
-                alt="star-fil"
-              />
-              <img
-                className="w-4.5 h-4.5"
-                src={assets.starIconFilled}
-                alt="star-fil"
-              />
-              <img
-                className="w-4.5 h-4.5"
-                src={assets.starIconOutlined}
-                alt="star-fil-without"
-              /> */}
+              
                 <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
                 <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
                 <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
@@ -133,31 +86,7 @@ const Review = () => {
               </div>
             </div>
             <div className="flex items-center gap-1 mt-4">
-              {/* <img
-                className="w-4.5 h-4.5"
-                src={assets.starIconFilled}
-                alt="star-fil"
-              />
-              <img
-                className="w-4.5 h-4.5"
-                src={assets.starIconFilled}
-                alt="star-fil"
-              />
-              <img
-                className="w-4.5 h-4.5"
-                src={assets.starIconFilled}
-                alt="star-fil"
-              />
-              <img
-                className="w-4.5 h-4.5"
-                src={assets.starIconFilled}
-                alt="star-fil"
-              />
-              <img
-                className="w-4.5 h-4.5"
-                src={assets.starIconOutlined}
-                alt="star-fil-without"
-              /> */}
+             
                 <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
                 <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />
                 <img className="w-4.5 h-4.5" src="/starIconFilled.svg" alt="star-fil" />

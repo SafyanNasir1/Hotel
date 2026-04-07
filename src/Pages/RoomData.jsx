@@ -11,6 +11,7 @@ const RoomData = () => {
     {
       _id: "1",
       name: "SHAFFI SUITES",
+      sub: "( Luxury Room )",
       price: 70,
       roomType: "Deluxe Room",
       images: ["room1.jpg", "room1-1.jpg", "room1-2.jpg", "room1-3.jpg"],
@@ -19,6 +20,7 @@ const RoomData = () => {
     {
       _id: "2",
       name: "SHAFFI SUITES",
+      sub: "( Luxury Room )",
       price: 80,
       roomType: "Standard Room",
       images: ["room2.jpg", "room2-1.jpg", "room2-2.jpg", "room1-3.jpg"],
@@ -27,6 +29,7 @@ const RoomData = () => {
     {
       _id: "3",
       name: "SHAFFI SUITES",
+      sub: "( Double Bed Room )",
       price: 90,
       roomType: "Deluxe Room",
       images: ["room3.jpg", "room3-2.jpg", "room3-1.jpg", "room1-3.jpg"],
@@ -35,6 +38,7 @@ const RoomData = () => {
     {
       _id: "4",
       name: "SHAFFI SUITES",
+      sub: "( Family Suite Room )",
       price: 100,
       roomType: "Deluxe Room",
       images: ["room4.jpg", "room4-1.jpg", "room4-2.jpg", "room1-3.jpg"],
@@ -93,6 +97,7 @@ const handleSubmit = (e) => {
   const newBooking = {
     _id: Date.now().toString(),
     roomName: room.name,
+    roomSub: room.sub,
     roomType: room.roomType,
     guests,
     checkIn,
@@ -129,7 +134,12 @@ const handleSubmit = (e) => {
 
       <div className="min-h-[70vh] py-28 md:py-35 px-4 md:px-16 lg:px-24 xl:px-32">
         {/* TITLE */}
-        <h1 className="text-3xl md:text-4xl font-playfair">{room.name}</h1>
+        <h1 className="text-3xl md:text-4xl font-playfair">
+          {room.name}
+          <span className="text-xl text-[#ff6900] font-semibold ml-2">
+            {room.sub}
+          </span>
+        </h1>
 
         {/* IMAGES */}
         {mainImage && (
@@ -179,10 +189,7 @@ const handleSubmit = (e) => {
             )}
             {room.amenities.includes("Free Breakfast") && (
               <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100">
-                <img
-                  src="/freeBreakfastIcon.svg"
-                  className="w-5 h-5"
-                />
+                <img src="/freeBreakfastIcon.svg" className="w-5 h-5" />
                 <p>Free Breakfast</p>
               </div>
             )}
@@ -196,7 +203,7 @@ const handleSubmit = (e) => {
         )}
 
         {/* BOOKING FORM */}
-        <form
+        {/* <form
           onSubmit={handleSubmit}
           className="flex flex-col md:flex-row items-start md:items-center justify-between bg-white shadow-[0px_0px_20px_rgba(0,0,0,0.15)] p-6 rounded-xl mx-auto mt-16 max-w-6xl"
         >
@@ -246,8 +253,64 @@ const handleSubmit = (e) => {
           >
             Check Availability
           </button>
-        </form>
+        </form> */}
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-5 bg-white shadow-[0px_0px_20px_rgba(0,0,0,0.15)] p-5 sm:p-6 rounded-xl mx-4 sm:mx-auto mt-10 max-w-6xl"
+        >
+          {/* Fields Container */}
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-6 text-gray-500 w-full">
+            {/* Check-In */}
+            <div className="flex flex-col w-full sm:flex-1 min-w-[140px]">
+              <label htmlFor="CheckInDate" className="font-medium">
+                Check-In
+              </label>
+              <input
+                id="CheckInDate"
+                min={"2025-12-01"}
+                className="w-full rounded-lg border border-gray-300 px-3 py-2 mt-1.5 outline-none focus:ring-2 focus:ring-primary"
+                required
+                type="date"
+              />
+            </div>
 
+            {/* Check-Out */}
+            <div className="flex flex-col w-full sm:flex-1 min-w-[140px]">
+              <label htmlFor="CheckOutDate" className="font-medium">
+                Check-Out
+              </label>
+              <input
+                id="CheckOutDate"
+                min={"2025-12-01"}
+                className="w-full rounded-lg border border-gray-300 px-3 py-2 mt-1.5 outline-none focus:ring-2 focus:ring-primary"
+                required
+                type="date"
+              />
+            </div>
+
+            {/* Guests */}
+            <div className="flex flex-col w-full sm:w-32">
+              <label htmlFor="guests" className="font-medium">
+                Guests
+              </label>
+              <input
+                id="guests"
+                className="w-full rounded-lg border border-gray-300 px-3 py-2 mt-1.5 outline-none focus:ring-2 focus:ring-primary"
+                placeholder="0"
+                required
+                type="number"
+              />
+            </div>
+          </div>
+
+          {/* Button */}
+          <button
+            type="submit"
+            className="w-full sm:w-auto bg-primary hover:bg-primary-dull active:scale-95 transition-all text-white rounded-lg px-6 py-3 text-base cursor-pointer"
+          >
+            Check Availability
+          </button>
+        </form>
         <div className="mt-25 space-y-4">
           <div className="flex items-start gap-2">
             <img src="/homeicon.svg" alt="home" className="w-6.5" />
@@ -261,11 +324,7 @@ const handleSubmit = (e) => {
           </div>
 
           <div className="flex items-start gap-2">
-            <img
-              src="/badgeIcon.svg"
-              alt="badgeIcon"
-              className="w-6.5"
-            />
+            <img src="/badgeIcon.svg" alt="badgeIcon" className="w-6.5" />
             <div>
               <p className="text-base">Enhanced Cleaning</p>
               <p className="text-gray-500">
@@ -301,7 +360,7 @@ const handleSubmit = (e) => {
           </div>
         </div>
 
-        <div className="max-w-3xl border-y border-gray-300 my-15 py-10 text-gray-500">
+        <div className="max-w-1xl border-y border-gray-300 my-15 py-10 text-gray-500">
           <p>
             Guests will be allocated on the ground floor according to
             availability. You get a comfortable Two bedroom apartment has a true

@@ -131,10 +131,10 @@ const handleLoginSubmit = async (e) => {
         </div>
       )}
 
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-black">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-black px-4 py-10">
         <div className="w-full max-w-5xl bg-gray-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
-          {/* LEFT IMAGE SLIDER */}
-          <div className="md:w-1/2 w-full relative h-96 md:h-auto">
+          {/* LEFT IMAGE */}
+          <div className="md:w-1/2 w-full relative h-52 sm:h-64 md:h-auto">
             {images.map((img, i) => (
               <img
                 key={i}
@@ -142,23 +142,22 @@ const handleLoginSubmit = async (e) => {
                 className={`absolute w-full h-full object-cover transition-opacity duration-700 ${
                   i === current ? "opacity-100" : "opacity-0"
                 }`}
-                alt=""
               />
             ))}
           </div>
 
           {/* RIGHT FORM */}
-          <div className="md:w-1/2 w-full p-10 text-white flex flex-col justify-center">
-            <h2 className="text-3xl font-bold mb-2 text-center">
+          <div className="md:w-1/2 w-full p-6 sm:p-8 md:p-10 text-white flex flex-col justify-center">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-center">
               {view === "login" ? "Welcome Back 👋" : "Create Account ✨"}
             </h2>
 
-            <p className="text-gray-400 mb-8 text-center">
+            <p className="text-gray-400 mb-6 text-center text-sm sm:text-base">
               {view === "login" ? "Login to continue" : "Signup to get started"}
             </p>
 
             <form
-              className="space-y-5"
+              className="space-y-4 sm:space-y-5"
               onSubmit={
                 view === "login" ? handleLoginSubmit : handleSignupSubmit
               }
@@ -173,8 +172,8 @@ const handleLoginSubmit = async (e) => {
                     ? setFormData({ ...formData, email: e.target.value })
                     : setForm({ ...form, email: e.target.value })
                 }
-                className="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600
-                focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-300"
+                className="w-full px-4 py-2.5 sm:py-3 rounded-lg bg-gray-700 border border-gray-600
+          focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
               />
 
               {/* PASSWORD */}
@@ -194,14 +193,14 @@ const handleLoginSubmit = async (e) => {
                           password: e.target.value,
                         })
                   }
-                  className="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600
-                  focus:outline-none focus:ring-2 focus:ring-purple-500 transition pr-12"
+                  className="w-full px-4 py-2.5 sm:py-3 rounded-lg bg-gray-700 border border-gray-600
+            focus:outline-none focus:ring-2 focus:ring-purple-500 pr-12"
                 />
 
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
                 >
                   {showPassword ? "🙈" : "👁️"}
                 </button>
@@ -209,12 +208,12 @@ const handleLoginSubmit = async (e) => {
 
               {/* BUTTON */}
               <button
-                className={`w-full py-3 rounded-lg font-semibold text-lg transition duration-300 transform hover:scale-[1.02]
-                ${
-                  view === "login"
-                    ? "bg-purple-600 hover:bg-purple-700"
-                    : "bg-blue-500 hover:bg-blue-600"
-                }`}
+                className={`w-full py-2.5 sm:py-3 rounded-lg font-semibold text-base sm:text-lg transition
+          ${
+            view === "login"
+              ? "bg-purple-600 hover:bg-purple-700"
+              : "bg-blue-500 hover:bg-blue-600"
+          }`}
               >
                 {view === "login" ? "Login" : "Signup"}
               </button>
@@ -222,7 +221,7 @@ const handleLoginSubmit = async (e) => {
 
             {/* SWITCH */}
             <p
-              className="text-center mt-6 text-sm text-gray-400 cursor-pointer hover:text-purple-400 transition"
+              className="text-center mt-5 text-xs sm:text-sm text-gray-400 cursor-pointer hover:text-purple-400"
               onClick={() => setView(view === "login" ? "signup" : "login")}
             >
               {view === "login"
