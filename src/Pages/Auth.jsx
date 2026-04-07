@@ -131,10 +131,10 @@ const handleLoginSubmit = async (e) => {
         </div>
       )}
 
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-black px-4 py-10">
+      <div className="min-h-screen flex items-center justify-center bg-gray-900 px-4 py-6 sm:py-10">
         <div className="w-full max-w-5xl bg-gray-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
           {/* LEFT IMAGE */}
-          <div className="md:w-1/2 w-full relative h-52 sm:h-64 md:h-auto">
+          <div className="md:w-1/2 w-full relative h-48 sm:h-64 md:h-auto">
             {images.map((img, i) => (
               <img
                 key={i}
@@ -147,9 +147,9 @@ const handleLoginSubmit = async (e) => {
           </div>
 
           {/* RIGHT FORM */}
-          <div className="md:w-1/2 w-full p-6 sm:p-8 md:p-10 text-white flex flex-col justify-center">
+          <div className="md:w-1/2 w-full p-6 sm:p-8 md:p-10 text-white flex flex-col justify-center bg-gray-800">
             <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-center">
-              {view === "login" ? "Welcome Back 👋" : "Create Account ✨"}
+              {view === "login" ? "Welcome Back" : "Create Account"}
             </h2>
 
             <p className="text-gray-400 mb-6 text-center text-sm sm:text-base">
@@ -172,8 +172,8 @@ const handleLoginSubmit = async (e) => {
                     ? setFormData({ ...formData, email: e.target.value })
                     : setForm({ ...form, email: e.target.value })
                 }
-                className="w-full px-4 py-2.5 sm:py-3 rounded-lg bg-gray-700 border border-gray-600
-          focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+                className="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600
+          focus:outline-none focus:ring-2 focus:ring-purple-500 transition placeholder-gray-400"
               />
 
               {/* PASSWORD */}
@@ -193,22 +193,23 @@ const handleLoginSubmit = async (e) => {
                           password: e.target.value,
                         })
                   }
-                  className="w-full px-4 py-2.5 sm:py-3 rounded-lg bg-gray-700 border border-gray-600
-            focus:outline-none focus:ring-2 focus:ring-purple-500 pr-12"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600
+            focus:outline-none focus:ring-2 focus:ring-purple-500 pr-16 placeholder-gray-400"
                 />
 
+                {/* TEXT BUTTON INSTEAD OF EMOJI */}
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-purple-400 hover:text-purple-300"
                 >
-                  {showPassword ? "🙈" : "👁️"}
+                  {showPassword ? "Hide" : "Show"}
                 </button>
               </div>
 
               {/* BUTTON */}
               <button
-                className={`w-full py-2.5 sm:py-3 rounded-lg font-semibold text-base sm:text-lg transition
+                className={`w-full py-3 rounded-lg font-semibold text-base sm:text-lg transition
           ${
             view === "login"
               ? "bg-purple-600 hover:bg-purple-700"
